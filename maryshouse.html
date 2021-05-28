@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Old Mary's House</title>
+    <script src="https://unpkg.com/aframe@latest"></script>
+    <script
+      type="text/javascript"
+      src="//unpkg.com/tone@14.8.25/build/Tone.js"
+    ></script>
+  </head>
+  <body>
+    <a-scene
+      renderer="physicallyCorrectLights: true"
+      inspector-plugin-recast
+      fog="type: linear; color: #617f93; near: -5; far: 20"
+    >
+      <a-sky></a-sky>
+      <a-plane
+        rotation="-90 0 0"
+        color="#204f20"
+        width="50"
+        height="50"
+        position="0 0 -5"
+      ></a-plane>
+
+      <!-- Old lady -->
+      <a-image
+        animation="startEvents: mouseenter; property: scale; to: 0.5 0.5 0.5 dur: 1000"
+        animation__mouseleave="property: scale; startEvents: mouseleave; to: 1 1 1"
+        position="0 1.5 -3"
+        src="media/oldlady.png"
+        height="3"
+        shadow
+      ></a-image>
+
+      <!-- house -->
+      <a-gltf-model
+        src="media/house.glb"
+        position="0 0.7 -12"
+        animation-mixer="clip: *;"
+        shadow
+        scale="0.5 0.5 0.5"
+      ></a-gltf-model>
+
+      <!-- Apple trees -->
+      <a-entity>
+        <a-gltf-model
+          src="media/appletree.glb"
+          position="-15 0.7 -12"
+          animation-mixer="clip: *;"
+          shadow
+        ></a-gltf-model>
+        <a-gltf-model
+          src="media/appletree.glb"
+          position="15 0.7 -12"
+          animation-mixer="clip: *;"
+          shadow
+        ></a-gltf-model>
+        <a-gltf-model
+          src="media/appletree.glb"
+          position="0 0.7 -22"
+          animation-mixer="clip: *;"
+          shadow
+        ></a-gltf-model>
+      </a-entity>
+
+      <!-- Rose hedge -->
+      <a-entity>
+        <a-gltf-model
+          src="media/rosebush.glb"
+          position="-24 0 -5"
+          animation-mixer="clip: *;"
+          scale="0.05 0.05 0.05"
+          shadow
+        ></a-gltf-model>
+        <a-gltf-model
+          src="media/rosebush.glb"
+          position="-24 0 -7"
+          animation-mixer="clip: *;"
+          scale="0.05 0.05 0.05"
+          shadow
+        ></a-gltf-model>
+      </a-entity>
+
+      <!-- Pears 
+        property: visible; from: true; to: false; dur: 3000; -->
+      <a-gltf-model
+        src="media/pear.glb"
+        position="16 0.7 -12"
+        shadow
+        scale="0.05 0.05 0.05"
+      ></a-gltf-model>
+
+      <!-- Kids -->
+      <a-entity>
+        <a-image
+          position="-3.49 2.48 -11.2"
+          src="media/kid.png"
+          height="0.52"
+          width="0.36"
+          shadow
+        ></a-image>
+        <a-image
+          position="4.4 5.45 -7.6"
+          src="media/kid2.png"
+          height="0.7"
+          width="0.6"
+          shadow
+        ></a-image>
+      </a-entity>
+
+      <a-entity id="rig" position="0 1 0">
+        <a-camera id="camera"></a-camera>
+      </a-entity>
+    </a-scene>
+    <script src="script.js"></script>
+  </body>
+</html>

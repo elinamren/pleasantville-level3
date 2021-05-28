@@ -1,0 +1,116 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#intro {
+  background-image: linear-gradient(black, grey);
+}
+
+.postcard {
+  width: 70%;
+  margin: 100px auto;
+  position: relative;
+}
+
+.postcard img {
+  width: 100%;
+}
+
+.diary {
+  position: absolute;
+  width: 45%;
+  padding: 100px 40px;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+#map {
+  background-image: url("media/map.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.woods {
+  background-color: #656618;
+  position: absolute;
+  top: 27%;
+  left: 23%;
+  border-radius: 50%;
+  border: none;
+  height: 100px;
+  width: 80px;
+}
+.house {
+  background-color: #614d34;
+  position: absolute;
+  top: 35%;
+  left: 54%;
+  border-radius: 2px;
+  border: 1px solid black;
+  height: 20px;
+  width: 30px;
+}
+
+.lake {
+  background-color: #7083c1;
+  position: absolute;
+  top: 30%;
+  left: 68%;
+  border-radius: 50%;
+  height: 270px;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lake input {
+  height: 40px;
+  width: 200px;
+  background-color: #7083c1;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.compass {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+}
+
+.gas-station {
+  position: absolute;
+  top: 80%;
+  left: 38%;
+  height: 70px;
+  width: 70px;
+  background-color: transparent;
+  border: none;
+}
+.map-of {
+  position: absolute;
+  top: 78%;
+  right: 15%;
+  height: 80px;
+  width: 250px;
+  background-color: transparent;
+  border: none;
+}
+
+.pattern {
+  width: 300px;
+  height: 300px;
+  margin: 200px auto;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
