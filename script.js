@@ -4,35 +4,62 @@ const patternOne = document.querySelector(".pattern-one");
 const patternTwo = document.querySelector(".pattern-two");
 const patternThree = document.querySelector(".pattern-three");
 const patternFour = document.querySelector(".pattern-four");
+const message = document.querySelector("#message");
 
 let challengesCompleted = 0;
 
 const firstChallengeHandler = () => {
-  window.location.href = "http://127.0.0.1:5500/maryshouse.html";
+  window.location.href = "maryshouse.html";
   challengesCompleted++;
   console.log(challengesCompleted);
 };
 
+const closeAllPatterns = () => {
+  patternTwo.classList.add("hidden");
+  patternThree.classList.add("hidden");
+  patternOne.classList.add("hidden");
+  patternFour.classList.add("hidden");
+};
+
 const getPatternOne = () => {
   patternOne.classList.toggle("hidden");
+  patternTwo.classList.add("hidden");
+  patternThree.classList.add("hidden");
+  patternFour.classList.add("hidden");
 };
 const getPatternTwo = () => {
   patternTwo.classList.toggle("hidden");
+  patternOne.classList.add("hidden");
+  patternThree.classList.add("hidden");
+  patternFour.classList.add("hidden");
 };
 const getPatternThree = () => {
   patternThree.classList.toggle("hidden");
+  patternTwo.classList.add("hidden");
+  patternOne.classList.add("hidden");
+  patternFour.classList.add("hidden");
 };
 const getPatternFour = () => {
   patternFour.classList.toggle("hidden");
+  patternTwo.classList.add("hidden");
+  patternThree.classList.add("hidden");
+  patternOne.classList.add("hidden");
 };
 
 const showHouse = (event) => {
   console.log(input.value);
   if (input.value === "rose") {
+    closeAllPatterns();
     marysHouse.style.display = "inline-block";
-    console.log("magic forest clicked");
+    message.innerText = "You are ready! Go to her house, before its to late.";
+  } else if (input.value.includes("r")) {
+    closeAllPatterns();
+
+    message.innerText = "You are on the right way!";
   } else {
-    alert("You are not ready to meet Mary just yet..");
+    closeAllPatterns();
+
+    message.innerText = "You are not ready to meet Mary just yet..";
     marysHouse.style.display = "none";
   }
 };
