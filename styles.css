@@ -87,7 +87,7 @@ a {
   margin: 100px auto 0;
 }
 #message {
-  padding: 0 30px;
+  padding: 5px 30px;
   margin: 0;
   text-align: center;
 }
@@ -132,6 +132,7 @@ a {
   width: 280px;
   background-color: transparent;
   border: none;
+  cursor: help;
 }
 
 .pattern {

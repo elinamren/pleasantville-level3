@@ -20,7 +20,6 @@ const closeAllPatterns = () => {
   patternOne.classList.add("hidden");
   patternFour.classList.add("hidden");
 };
-
 const getPatternOne = () => {
   patternOne.classList.toggle("hidden");
   patternTwo.classList.add("hidden");
@@ -46,7 +45,7 @@ const getPatternFour = () => {
   patternOne.classList.add("hidden");
 };
 
-const showHouse = (event) => {
+const showHouse = () => {
   console.log(input.value);
   if (input.value === "rose") {
     closeAllPatterns();
