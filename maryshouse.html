@@ -29,7 +29,7 @@
             if (apples === 5) {
               document.querySelector(".speechbubble").style.display = "block";
               document.querySelector("#speechbubble-text").innerHTML =
-                "Mary: Thank you dear. <br>I remember I met someone, someone who tried to figure out a riddle. <br>It was long ago but it's still stuck in my mind, maybe you know the right answer. <br><br>I don't have wings, but I can fly. <br>I don't have eyes, but I will cry! <br>What am I? Look for me!";
+                "<i>Mary:</i> Thank you dear. <br>I remember I met someone, someone who tried to figure out a riddle. <br>It was long ago but it's still stuck in my mind, maybe you know the right answer. <br><br>I don't have wings, but I can fly. <br>I don't have eyes, but I will cry! <br>What am I? Look for me!";
               console.log("you have picked " + apples + " apples!");
             }
           }
@@ -40,13 +40,14 @@
         init: function () {
           const el = this.el;
           this.el.addEventListener("click", function () {
-            document.querySelector("#camera").setAttribute("position", "0 2 2");
-            // document
-            //   .querySelector("#second-camera")
-            //   .setAttribute("active", true);
+            document.querySelector("#camera").setAttribute("active", false);
+            document
+              .querySelector("#second-camera")
+              .setAttribute("active", true);
             document.querySelector(".speechbubble").style.display = "block";
+            document.querySelector(".speechbubble").style.bottom = "62%";
             document.querySelector("#speechbubble-text").innerHTML =
-              "Mary: I don’t know anything about that. <br>It seems that someone is pointing to the medium, she'll give you all the answers you seek. <br>Take the shortcut through the corn field.";
+              "<i>Mary:</i> I don’t know anything about that. <br>It seems that someone is pointing to the medium, she'll give you all the answers you seek. <br>Take the shortcut through the corn field.";
             document
               .querySelector("#speechbubble-button")
               .removeEventListener("click", conversationHandler);
@@ -61,7 +62,7 @@
   <body>
     <div class="speechbubble">
       <p id="speechbubble-text">
-        Mary: Hello Dear,<br />
+        <i>Mary:</i> Hello Dear,<br />
         I can see that you want to ask me something?
       </p>
       <button id="speechbubble-button" onclick="conversationHandler()">
@@ -195,7 +196,6 @@
         shadow
         scale="0.05 0.05 0.05"
         shadow="cast: true"
-        apple-function
       ></a-gltf-model>
 
       <!-- Apples-->
@@ -205,7 +205,7 @@
           src="media/apple.glb"
           scale="0.05 0.05 0.05"
           position="2 0 -4"
-          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          animation="startEvents: mouseenter; property: scale; to: 0.06 0.06 0.06;"
           shadow="cast: true"
           apple-function
         >
@@ -215,7 +215,7 @@
           src="media/apple.glb"
           scale="0.05 0.05 0.05"
           position="3 0 -4"
-          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          animation="startEvents: mouseenter; property: scale; to: 0.06 0.06 0.06;"
           shadow="cast: true"
           apple-function
         >
@@ -225,7 +225,7 @@
           src="media/apple.glb"
           scale="0.05 0.05 0.05"
           position="4 0 -4"
-          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          animation="startEvents: mouseenter; property: scale; to: 0.06 0.06 0.06;"
           shadow="cast: true"
           apple-function
         >
@@ -235,7 +235,7 @@
           src="media/apple.glb"
           scale="0.05 0.05 0.05"
           position="5 0 -4"
-          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          animation="startEvents: mouseenter; property: scale; to: 0.06 0.06 0.06;"
           shadow="cast: true"
           apple-function
         >
@@ -245,7 +245,7 @@
           src="media/apple.glb"
           scale="0.05 0.05 0.05"
           position="6 0 -4"
-          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          animation="startEvents: mouseenter; property: scale; to: 0.06 0.06 0.06;"
           shadow="cast: true"
           apple-function
         >
@@ -273,7 +273,9 @@
           <a-cursor></a-cursor>
         </a-camera>
       </a-entity>
-      <a-entity position="0 2 1" camera="active: false"> </a-entity>
+      <a-entity position="0 2 1" camera="active: false" id="second-camera">
+        <a-cursor></a-cursor>
+      </a-entity>
     </a-scene>
     <script src="script.js"></script>
   </body>

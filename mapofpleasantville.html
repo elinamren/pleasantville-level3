@@ -12,7 +12,7 @@
     ></script>
   </head>
   <body id="map">
-    <button onclick="getPatternOne()" class="woods">
+    <button onclick="getPatternOne(one)" class="woods">
       MAGIC
       <br />
       FOREST
@@ -31,7 +31,11 @@
     <button class="gas-station" onclick="getPatternThree()"></button>
     <button class="map-of" onclick="getPatternFour()"></button>
 
-    <img
+    <div class="pattern hidden">
+      <button id="close-pattern" onclick="closePattern()">x</button>
+      <img src="" alt="qr code" id="pattern-image" />
+    </div>
+    <!-- <img
       src="media/pattern-mouth.png"
       alt="qr code"
       class="pattern pattern-one hidden"
@@ -50,7 +54,7 @@
       src="media/pattern-pleasantville.png"
       alt="qr code"
       class="pattern pattern-four hidden"
-    />
+    /> -->
 
     <script src="script.js"></script>
   </body>

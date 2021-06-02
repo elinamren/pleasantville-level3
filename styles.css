@@ -38,6 +38,7 @@ a {
   background-image: url("media/map.png");
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .woods {
@@ -139,29 +140,26 @@ a {
   display: block;
 }
 
+#pattern-image {
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
 
 /* Marys house */
 .speechbubble {
-  background-color: white;
-  border: 2px solid black;
+  background-color: black;
+  border: 2px solid grey;
+  color: white;
   border-radius: 20px;
+  width: 600px;
   padding: 20px;
   z-index: 10;
   position: absolute;
   bottom: 100px;
   left: 50px;
-}
-.speechbubble2 {
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 20px;
-  z-index: 10;
-  position: absolute;
-  bottom: 100px;
-  left: 50px;
-  display: hidden;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.5rem;
 }
