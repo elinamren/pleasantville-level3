@@ -6,9 +6,6 @@ const patternThree = document.querySelector(".pattern-three");
 const patternFour = document.querySelector(".pattern-four");
 const message = document.querySelector("#message");
 
-const speechbubbleText = document.querySelector("#speechbubble-text");
-const speechbubbleButton = document.querySelector("#speechbubble-button");
-
 let challengesCompleted = 0;
 
 const firstChallengeHandler = () => {
@@ -68,13 +65,31 @@ const showHouse = () => {
 
 //MARYS HOUSE
 
-const askQuestion = () => {
-  console.log("yes its clicked");
-  speechbubbleText.innerText =
-    "I am looking for someone. Have you noticed anything?";
-  speechbubbleButton.innerText = "Get answere?";
+//
+
+const speechbubbleText = document.querySelector("#speechbubble-text");
+const speechbubble = document.querySelector(".speechbubble");
+
+conversations = [
+  "I am looking for someone. <br>Have you noticed anything?",
+  "Mary: I might have heard something about someone, let me think. <br>I am about to make an apple pie, can you get some apples for me? <br>5 would be enough.",
+  "Mary: Thank you dear. I remember I met someone, someone who tried to figure out a riddle. It was long ago but it's still stuck in my mind, maybe you know the right answer. I don't have wings, but I can fly. I don't have eyes, but I will cry!What am I? Look for me!",
+  "Mary: I don’t know anything about that. It seems that someone is pointing to the medium, she'll give you all the answers you seek. Take the shortcut through the corn field.",
+];
+let times = 0;
+
+const conversationHandler = () => {
+  if (times === 2) {
+    speechbubble.style.display = "none";
+  } else {
+    speechbubbleText.innerHTML = conversations[times];
+    times++;
+  }
 };
-speechbubbleButton.addEventListener("click", askQuestion);
+
+const finishLevel = () => {
+  alert("Congrats you finished the level!");
+};
 
 // Background music
 

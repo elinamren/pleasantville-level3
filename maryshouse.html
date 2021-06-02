@@ -7,17 +7,66 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Old Mary's House</title>
     <script src="https://unpkg.com/aframe@latest"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+
     <script
       type="text/javascript"
       src="//unpkg.com/tone@14.8.25/build/Tone.js"
     ></script>
+
+    <script>
+      let apples = 0;
+
+      AFRAME.registerComponent("apple-function", {
+        init: function () {
+          const el = this.el;
+          this.el.addEventListener("click", getApple);
+          function getApple() {
+            el.setAttribute("visible", "false");
+            apples++;
+            console.log(apples);
+            el.removeEventListener("click", getApple);
+            if (apples === 5) {
+              document.querySelector(".speechbubble").style.display = "block";
+              document.querySelector("#speechbubble-text").innerHTML =
+                "Mary: Thank you dear. <br>I remember I met someone, someone who tried to figure out a riddle. <br>It was long ago but it's still stuck in my mind, maybe you know the right answer. <br><br>I don't have wings, but I can fly. <br>I don't have eyes, but I will cry! <br>What am I? Look for me!";
+              console.log("you have picked " + apples + " apples!");
+            }
+          }
+        },
+      });
+
+      AFRAME.registerComponent("cloud-function", {
+        init: function () {
+          const el = this.el;
+          this.el.addEventListener("click", function () {
+            document.querySelector("#camera").setAttribute("position", "0 2 2");
+            // document
+            //   .querySelector("#second-camera")
+            //   .setAttribute("active", true);
+            document.querySelector(".speechbubble").style.display = "block";
+            document.querySelector("#speechbubble-text").innerHTML =
+              "Mary: I don’t know anything about that. <br>It seems that someone is pointing to the medium, she'll give you all the answers you seek. <br>Take the shortcut through the corn field.";
+            document
+              .querySelector("#speechbubble-button")
+              .removeEventListener("click", conversationHandler);
+            document
+              .querySelector("#speechbubble-button")
+              .addEventListener("click", finishLevel);
+          });
+        },
+      });
+    </script>
   </head>
   <body>
     <div class="speechbubble">
       <p id="speechbubble-text">
-        Hello Dear, I can see that you want to ask me something?
+        Mary: Hello Dear,<br />
+        I can see that you want to ask me something?
       </p>
-      <button id="speechbubble-button">Ask</button>
+      <button id="speechbubble-button" onclick="conversationHandler()">
+        Continue
+      </button>
     </div>
     <a-scene renderer="physicallyCorrectLights: true">
       <a-assets>
@@ -47,20 +96,47 @@
 
       <!-- Cloud -->
       <a-image
+        id="cloud"
         src="media/cloud.png"
         width="6"
         height="2"
         position="0 20 0"
         rotation="90 0 0"
-        animation__rotation="startEvents: mouseenter; property: rotation; to: 90 360 0; loop: true; dur: 3000; easing: linear"
+        event-set__tarvisible="_event: click; _target: #corn-reading; visible: true;"
+        event-set__tarposition="_event: click; _target: #corn-reading; position: -2 0 -4; dur: 3000; delay: 1500"
+        animation__rotation="startEvents: mouseenter; property: rotation; to: 90 10 0;"
+        cloud-function
       >
       </a-image>
-      <a-gltf-model
-        src="media/corn.glb"
-        position="0 0 0"
-        scale="0.03 0.03 0.03"
-      >
-      </a-gltf-model>
+
+      <!-- Corn cobs and tarot cards -->
+      <a-entity position="-2 30 -4" id="corn-reading" visible="false">
+        <a-gltf-model
+          src="media/corn.glb"
+          position="0 0 0"
+          scale="0.03 0.03 0.03"
+          rotation="0 30 -90"
+        >
+        </a-gltf-model>
+        <a-gltf-model
+          src="media/corn.glb"
+          position="2 0 0"
+          scale="0.03 0.03 0.03"
+          rotation="0 0 90"
+        >
+        </a-gltf-model>
+
+        <a-image src="media/tarot1.png" position="0 0.1 1" rotation="-90 0 5">
+        </a-image>
+        <a-image
+          src="media/tarot2.png"
+          position="-1 0.1 1"
+          rotation="-90 0 -20"
+        >
+        </a-image>
+        <a-image src="media/tarot3.png" position="1 0.1 1" rotation="-90 0 10">
+        </a-image>
+      </a-entity>
 
       <!-- house -->
       <a-gltf-model
@@ -119,18 +195,62 @@
         shadow
         scale="0.05 0.05 0.05"
         shadow="cast: true"
+        apple-function
       ></a-gltf-model>
 
       <!-- Apples-->
-      <!-- animation__hide="property: visible; to: false; delay: 5000;" -->
-      <a-gltf-model
-        src="media/apple.glb"
-        scale="0.05 0.05 0.05"
-        position="2 0 -4"
-        animation="startEvents: click; property: position; to: 2 5 -4; dur: 2000; delay: 2000;"
-        shadow="cast: true"
-      >
-      </a-gltf-model>
+      <a-entity>
+        <a-gltf-model
+          id="apple-one"
+          src="media/apple.glb"
+          scale="0.05 0.05 0.05"
+          position="2 0 -4"
+          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          shadow="cast: true"
+          apple-function
+        >
+        </a-gltf-model>
+        <a-gltf-model
+          id="apple-one"
+          src="media/apple.glb"
+          scale="0.05 0.05 0.05"
+          position="3 0 -4"
+          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          shadow="cast: true"
+          apple-function
+        >
+        </a-gltf-model>
+        <a-gltf-model
+          id="apple-one"
+          src="media/apple.glb"
+          scale="0.05 0.05 0.05"
+          position="4 0 -4"
+          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          shadow="cast: true"
+          apple-function
+        >
+        </a-gltf-model>
+        <a-gltf-model
+          id="apple-one"
+          src="media/apple.glb"
+          scale="0.05 0.05 0.05"
+          position="5 0 -4"
+          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          shadow="cast: true"
+          apple-function
+        >
+        </a-gltf-model>
+        <a-gltf-model
+          id="apple-one"
+          src="media/apple.glb"
+          scale="0.05 0.05 0.05"
+          position="6 0 -4"
+          animation="startEvents: mouseenter; property: rotation; to: 0 360 0; dur: 2000;"
+          shadow="cast: true"
+          apple-function
+        >
+        </a-gltf-model>
+      </a-entity>
 
       <!-- Kids -->
       <a-entity>
@@ -153,6 +273,7 @@
           <a-cursor></a-cursor>
         </a-camera>
       </a-entity>
+      <a-entity position="0 2 1" camera="active: false"> </a-entity>
     </a-scene>
     <script src="script.js"></script>
   </body>
