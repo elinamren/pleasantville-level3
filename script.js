@@ -6,6 +6,9 @@ const patternThree = document.querySelector(".pattern-three");
 const patternFour = document.querySelector(".pattern-four");
 const message = document.querySelector("#message");
 
+const speechbubbleText = document.querySelector("#speechbubble-text");
+const speechbubbleButton = document.querySelector("#speechbubble-button");
+
 let challengesCompleted = 0;
 
 const firstChallengeHandler = () => {
@@ -63,20 +66,30 @@ const showHouse = () => {
   }
 };
 
+//MARYS HOUSE
+
+const askQuestion = () => {
+  console.log("yes its clicked");
+  speechbubbleText.innerText =
+    "I am looking for someone. Have you noticed anything?";
+  speechbubbleButton.innerText = "Get answere?";
+};
+speechbubbleButton.addEventListener("click", askQuestion);
+
 // Background music
 
-window.onload = async function makeNoise() {
-  //start up the audio machinery
-  await Tone.start();
+// window.onload = async function makeNoise() {
+//   //start up the audio machinery
+//   await Tone.start();
 
-  const distortion = new Tone.Distortion(0.5).toDestination();
+//   const distortion = new Tone.Distortion(0.5).toDestination();
 
-  const player = new Tone.Player({
-    url: "media/base.wav",
-    loop: true,
-  }).connect(distortion);
-  player.volume.value = -25;
+//   const player = new Tone.Player({
+//     url: "media/base.wav",
+//     loop: true,
+//   }).connect(distortion);
+//   player.volume.value = -25;
 
-  await Tone.loaded();
-  player.start();
-};
+//   await Tone.loaded();
+//   player.start();
+// };

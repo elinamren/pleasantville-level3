@@ -13,36 +13,61 @@
     ></script>
   </head>
   <body>
-    <a-scene
-      renderer="physicallyCorrectLights: true"
-      inspector-plugin-recast
-      fog="type: linear; color: #617f93; near: -5; far: 20"
-    >
-      <a-sky></a-sky>
+    <div class="speechbubble">
+      <p id="speechbubble-text">
+        Hello Dear, I can see that you want to ask me something?
+      </p>
+      <button id="speechbubble-button">Ask</button>
+    </div>
+    <a-scene renderer="physicallyCorrectLights: true">
+      <a-assets>
+        <img src="media/sky.png" id="sky" />
+      </a-assets>
+      <!-- fog="type: linear; color: #617f93; near: -5; far: 20" -->
+      <a-sky src="#sky" rotation="0 250 0"></a-sky>
       <a-plane
+        material="color: #204f20"
         rotation="-90 0 0"
-        color="#204f20"
-        width="50"
-        height="50"
-        position="0 0 -5"
+        scale="50 50 1"
+        shadow="receive: true"
       ></a-plane>
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-entity
+        light="type: directional; color: #FFFFFF; intencity: 0.8; castShadow: true;"
+        position="1.45 5.1 -4"
+      ></a-entity>
 
       <!-- Old lady -->
       <a-image
-        animation="startEvents: mouseenter; property: scale; to: 0.5 0.5 0.5 dur: 1000"
-        animation__mouseleave="property: scale; startEvents: mouseleave; to: 1 1 1"
         position="0 1.5 -3"
         src="media/oldlady.png"
         height="3"
-        shadow
+        shadow="cast: true"
       ></a-image>
+
+      <!-- Cloud -->
+      <a-image
+        src="media/cloud.png"
+        width="6"
+        height="2"
+        position="0 20 0"
+        rotation="90 0 0"
+        animation__rotation="startEvents: mouseenter; property: rotation; to: 90 360 0; loop: true; dur: 3000; easing: linear"
+      >
+      </a-image>
+      <a-gltf-model
+        src="media/corn.glb"
+        position="0 0 0"
+        scale="0.03 0.03 0.03"
+      >
+      </a-gltf-model>
 
       <!-- house -->
       <a-gltf-model
         src="media/house.glb"
-        position="0 0.7 -12"
+        position="0 0 -12"
         animation-mixer="clip: *;"
-        shadow
+        shadow="cast: true"
         scale="0.5 0.5 0.5"
       ></a-gltf-model>
 
@@ -50,21 +75,21 @@
       <a-entity>
         <a-gltf-model
           src="media/appletree.glb"
-          position="-15 0.7 -12"
+          position="-15 0 -12"
           animation-mixer="clip: *;"
-          shadow
+          shadow="cast: true"
         ></a-gltf-model>
         <a-gltf-model
           src="media/appletree.glb"
-          position="15 0.7 -12"
+          position="15 0 -12"
           animation-mixer="clip: *;"
-          shadow
+          shadow="cast: true"
         ></a-gltf-model>
         <a-gltf-model
           src="media/appletree.glb"
-          position="0 0.7 -22"
+          position="0 0 -22"
           animation-mixer="clip: *;"
-          shadow
+          shadow="cast: true"
         ></a-gltf-model>
       </a-entity>
 
@@ -75,14 +100,14 @@
           position="-24 0 -5"
           animation-mixer="clip: *;"
           scale="0.05 0.05 0.05"
-          shadow
+          shadow="cast: true"
         ></a-gltf-model>
         <a-gltf-model
           src="media/rosebush.glb"
           position="-24 0 -7"
           animation-mixer="clip: *;"
           scale="0.05 0.05 0.05"
-          shadow
+          shadow="cast: true"
         ></a-gltf-model>
       </a-entity>
 
@@ -90,31 +115,43 @@
         property: visible; from: true; to: false; dur: 3000; -->
       <a-gltf-model
         src="media/pear.glb"
-        position="16 0.7 -12"
+        position="16 0.1 -12"
         shadow
         scale="0.05 0.05 0.05"
+        shadow="cast: true"
       ></a-gltf-model>
+
+      <!-- Apples-->
+      <!-- animation__hide="property: visible; to: false; delay: 5000;" -->
+      <a-gltf-model
+        src="media/apple.glb"
+        scale="0.05 0.05 0.05"
+        position="2 0 -4"
+        animation="startEvents: click; property: position; to: 2 5 -4; dur: 2000; delay: 2000;"
+        shadow="cast: true"
+      >
+      </a-gltf-model>
 
       <!-- Kids -->
       <a-entity>
         <a-image
-          position="-3.49 2.48 -11.2"
+          position="-3.49 1.78 -11.2"
           src="media/kid.png"
           height="0.52"
           width="0.36"
-          shadow
         ></a-image>
         <a-image
-          position="4.4 5.45 -7.6"
+          position="4.4 4.75 -7.6"
           src="media/kid2.png"
           height="0.7"
           width="0.6"
-          shadow
         ></a-image>
       </a-entity>
 
       <a-entity id="rig" position="0 1 0">
-        <a-camera id="camera"></a-camera>
+        <a-camera id="camera">
+          <a-cursor></a-cursor>
+        </a-camera>
       </a-entity>
     </a-scene>
     <script src="script.js"></script>

@@ -66,6 +66,7 @@ a {
   border: 1px solid black;
   height: 25px;
   width: 40px;
+  cursor: pointer;
 }
 
 .lake {
@@ -76,10 +77,6 @@ a {
   border-radius: 50%;
   height: 270px;
   width: 220px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 }
 #password {
   width: 70%;
@@ -144,4 +141,16 @@ a {
 
 .hidden {
   display: none;
+}
+
+/* Marys house */
+.speechbubble {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  z-index: 10;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
 }
