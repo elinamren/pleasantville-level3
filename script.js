@@ -81,18 +81,18 @@ const finishLevel = () => {
 
 // Background music
 
-// window.onload = async function makeNoise() {
-//   //start up the audio machinery
-//   await Tone.start();
+window.onload = async function makeNoise() {
+  //start up the audio machinery
+  await Tone.start();
 
-//   const distortion = new Tone.Distortion(0.5).toDestination();
+  const distortion = new Tone.Distortion(0.5).toDestination();
 
-//   const player = new Tone.Player({
-//     url: "media/base.wav",
-//     loop: true,
-//   }).connect(distortion);
-//   player.volume.value = -25;
+  const player = new Tone.Player({
+    url: "media/base.wav",
+    loop: true,
+  }).connect(distortion);
+  player.volume.value = -25;
 
-//   await Tone.loaded();
-//   player.start();
-// };
+  await Tone.loaded();
+  player.start();
+};
