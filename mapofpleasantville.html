@@ -12,7 +12,7 @@
     ></script>
   </head>
   <body id="map">
-    <button onclick="getPatternOne(one)" class="woods">
+    <button onclick="getPattern('media/pattern-mouth.png')" class="woods">
       MAGIC
       <br />
       FOREST
@@ -25,37 +25,24 @@
       <p id="message"></p>
     </div>
 
-    <button class="compass" onclick="getPatternTwo()">
+    <button class="compass" onclick="getPattern('media/pattern-hand.png')">
       <img src="media/compass.png" alt="compass" />
     </button>
-    <button class="gas-station" onclick="getPatternThree()"></button>
-    <button class="map-of" onclick="getPatternFour()"></button>
+    <button
+      class="gas-station"
+      onclick="getPattern('media/pattern-grasshopper.png')"
+    ></button>
+    <button
+      class="map-of"
+      onclick="getPattern('media/pattern-pleasantville.png')"
+    ></button>
 
-    <div class="pattern hidden">
-      <button id="close-pattern" onclick="closePattern()">x</button>
-      <img src="" alt="qr code" id="pattern-image" />
+    <div class="modal hidden">
+      <div class="pattern">
+        <button id="close-pattern" onclick="closePattern()">x</button>
+        <img src="" alt="qr code" id="pattern-image" />
+      </div>
     </div>
-    <!-- <img
-      src="media/pattern-mouth.png"
-      alt="qr code"
-      class="pattern pattern-one hidden"
-    />
-    <img
-      src="media/pattern-hand.png"
-      alt="qr code"
-      class="pattern pattern-two hidden"
-    />
-    <img
-      src="media/pattern-grasshopper.png"
-      alt="qr code"
-      class="pattern pattern-three hidden"
-    />
-    <img
-      src="media/pattern-pleasantville.png"
-      alt="qr code"
-      class="pattern pattern-four hidden"
-    /> -->
-
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 const marysHouse = document.querySelector(".house");
 const input = document.querySelector("#password");
 const message = document.querySelector("#message");
-const pattern = document.querySelector(".pattern");
+const pattern = document.querySelector(".modal");
 const patternImage = document.querySelector("#pattern-image");
 
 const firstChallengeHandler = () => {
@@ -9,29 +9,18 @@ const firstChallengeHandler = () => {
 };
 
 const closePattern = () => {
-  pattern.classList.add("hidden");
+  pattern.style.display = "none";
 };
 
-const one = "media/pattern-mouth.png";
-const two = "media/pattern-hand.png";
-const three = "media/pattern-grasshopper.png";
-const four = "media/pattern-pleasantville.png";
+window.onclick = function (event) {
+  if (event.target == pattern) {
+    pattern.style.display = "none";
+  }
+};
 
-const getPatternOne = (one) => {
-  pattern.classList.remove("hidden");
-  patternImage.src = one;
-};
-const getPatternTwo = () => {
-  pattern.classList.remove("hidden");
-  patternImage.src = two;
-};
-const getPatternThree = () => {
-  pattern.classList.remove("hidden");
-  patternImage.src = three;
-};
-const getPatternFour = () => {
-  pattern.classList.remove("hidden");
-  patternImage.src = four;
+const getPattern = (src) => {
+  pattern.style.display = "block";
+  patternImage.src = src;
 };
 
 const showHouse = () => {
@@ -52,8 +41,6 @@ const showHouse = () => {
 };
 
 //MARYS HOUSE
-
-//
 
 const speechbubbleText = document.querySelector("#speechbubble-text");
 const speechbubble = document.querySelector(".speechbubble");
