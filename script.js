@@ -36,17 +36,17 @@ const getPatternFour = () => {
 
 const showHouse = () => {
   console.log(input.value);
-  if (input.value.toLowerCase() === "rose") {
+  if (input.value.toLowerCase() === "mary") {
     closePattern();
     marysHouse.style.display = "inline-block";
     message.innerText = "You are ready! Go to her house, before its to late.";
-  } else if (input.value.toLowerCase().includes("r")) {
+  } else if (input.value.toLowerCase().includes("m")) {
     closePattern();
     message.innerText = "You are on the right way!";
   } else {
     closePattern();
 
-    message.innerText = "You are not ready to meet Mary just yet..";
+    message.innerText = "You are not ready to meet her just yet..";
     marysHouse.style.display = "none";
   }
 };
