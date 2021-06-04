@@ -14,6 +14,7 @@ AFRAME.registerComponent("apple-function", {
         document.querySelector("#speechbubble-text").innerHTML =
           "<i>Mary:</i> Thank you dear. <br>I remember I met someone, someone who tried to figure out a riddle. <br>It was long ago but it's still stuck in my mind, maybe you know the right answer. <br><br>I don't have wings, but I can fly. <br>I don't have eyes, but I will cry! <br>What am I? Look for me!";
         console.log("you have picked " + apples + " apples!");
+        document.querySelector("#cloud").setAttribute("visible", "true");
       }
     }
   },

@@ -191,3 +191,21 @@ a {
   font-family: "Courier New", Courier, monospace;
   font-size: 1.5rem;
 }
+
+#speechbubble-button {
+  background-color: white;
+  border: 2px solid rgb(255, 255, 255);
+  font-size: 1.5rem;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: "Courier New", Courier, monospace;
+  float: right;
+  margin-right: 8px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+#speechbubble-button:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
