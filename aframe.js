@@ -24,7 +24,7 @@ AFRAME.registerComponent("cloud-function", {
   init: function () {
     const el = this.el;
     this.el.addEventListener("click", function () {
-      document.querySelector("#camera").setAttribute("active", false);
+      document.querySelector("#camera").setAttribute("camera", "active", false);
       document.querySelector("#second-camera").setAttribute("active", true);
       document.querySelector(".speechbubble").style.display = "block";
       document.querySelector(".speechbubble").style.bottom = "62%";
