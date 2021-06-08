@@ -63,7 +63,7 @@ const conversationHandler = () => {
 };
 
 const finishLevel = () => {
-  alert("Congrats you finished the level!");
+  window.parent.postMessage("nextLevel");
 };
 
 // Background music
