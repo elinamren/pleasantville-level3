@@ -6,7 +6,7 @@ Escape from Pleasantville is a story of the missing Alex, told through a series 
 
 Now, in the middle of the game, you can't wait to get answers what happened and where Alex is...
 
-This project was built with AR patterns and with the 3D framework A-frame.
+This project was built with the framework A-frame.
 
 ## Play the live version here
 
