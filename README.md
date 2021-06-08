@@ -29,6 +29,9 @@ This project was built with the framework A-frame.
 
 [A-frame:](https://aframe.io/) "A web framework for building 3D/AR/VR experiences"  
 
+**Credit:**
+3D objects - [Poly by Google](https://poly.google.com/)  
+Sound effects - [freesound](https://freesound.org/)  
 
 **Links to the other levels in the Pleasantville universe:**
 
