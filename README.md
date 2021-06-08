@@ -11,9 +11,7 @@ This project was built with the framework A-frame.
 ## Play the live version here
 
 [Game start: ](https://escapefromhyperisland.github.io/pleasantville)
-
 [This level: ](https://escapefromhyperisland.github.io/pleasantville/level-3)
-
 [Escape from Hyper Island: ](https://escapefromhyperisland.github.io)
 
 
@@ -25,13 +23,12 @@ This project was built with the framework A-frame.
 **Challenges:**
 
 1. Add functionallity to the a-frame 3D world was tricky
-
 2. Give and show the right amount of feedback to the player to make the game of a good level. Not to hard and not to easy!
 
 **Tools and Tech stack:**
 
 [A-frame:](https://aframe.io/) "A web framework for building 3D/AR/VR experiences"  
-AR patterns  
+
 
 **Links to the other levels in the Pleasantville universe:**
 
