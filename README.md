@@ -10,9 +10,9 @@ This project was built with the framework A-frame.
 
 ## Play the live version here
 
-[Game start: ](https://escapefromhyperisland.github.io/pleasantville)
-[This level: ](https://escapefromhyperisland.github.io/pleasantville/level-3)
-[Escape from Hyper Island: ](https://escapefromhyperisland.github.io)
+[Game start](https://escapefromhyperisland.github.io/game/?world=4)  
+[This level](https://escapefromhyperisland.github.io/pleasantville/level-3)  
+[Escape from Hyper Island](https://escapefromhyperisland.github.io)  
 
 
 **New things I worked with:**
