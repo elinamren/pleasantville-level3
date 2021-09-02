@@ -12,7 +12,6 @@ This project was built with the framework A-frame.
 
 [Game start](https://escapefromhyperisland.github.io/game/?world=5)  
 [This level](https://escapefromhyperisland.github.io/pleasantville/level-3)  
-[Escape from Hyper Island](https://escapefromhyperisland.github.io)  
 
 
 **New things I worked with:**
